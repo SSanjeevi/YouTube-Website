@@ -66,7 +66,18 @@ const runtimeConfig = {
         })
     ],
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".jsx", ".html", ".scss"]
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".html", ".scss"],
+        fallback: {
+            "fs": false,
+            "tls": false,
+            "net": false,
+            "path": false,
+            "zlib": false,
+            "http": false,
+            "https": false,
+            "stream": false, // require.resolve("stream-browserify/"),
+            "buffer": require.resolve("buffer/")
+        }
     }
 }
 

@@ -1,8 +1,7 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const runtimeConfig = require("./webpack.runtime.js");
 
 
 const designerConfig = {
@@ -25,7 +24,9 @@ const designerConfig = {
                     {
                         loader: "css-loader",
                         options: {
-                            url: (url) => /\/icon-.*\.svg$/.test(url)
+                            url: {
+                                filter: (url) => /\/icon-.*\.svg$/.test(url)
+                            }
                         }
                     },
                     { loader: "postcss-loader" },
@@ -79,8 +80,22 @@ const designerConfig = {
         })
     ],
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".jsx", ".html", ".scss"]
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".html", ".scss"],
+        fallback: {
+            "fs": false,
+            "tls": false,
+            "net": false,
+            "path": false,
+            "zlib": false,
+            "http": false,
+            "https": false,
+            "stream": false,
+            "crypto": false
+        }
     }
 };
 
-module.exports = [designerConfig, runtimeConfig(true)]
+// module.exports = [designerConfig, runtimeConfig(true)]
+
+
+module.exports = designerConfig;
