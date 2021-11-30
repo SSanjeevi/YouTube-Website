@@ -10,11 +10,9 @@ const developmentConfig = {
     devtool: "inline-source-map",
     devServer: {
         hot: true,
-        historyApiFallback: true,
-        allowedHosts: "all"
+        historyApiFallback: true
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 { from: `./src/config.design.json`, to: `./config.json` },
@@ -31,7 +29,7 @@ const developmentConfig = {
             "http": false,
             "https": false,
             "stream": false,
-            "buffer": require.resolve("buffer/")
+            "buffer": false
         }
     }
 }
@@ -41,4 +39,4 @@ const developmentConfig = {
 //     .map(x => merge(x, developmentConfig));
 
 
-module.exports = [merge(designerConfig, developmentConfig)] //, runtimeConfig(true)]
+module.exports = [merge(designerConfig, developmentConfig), runtimeConfig(true)]

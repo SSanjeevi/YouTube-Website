@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 
 const runtimeConfig = {
-    mode: "none",
+    mode: "development",
     target: "web",
     entry: {
         "scripts/theme": ["./src/startup.runtime.ts"],
@@ -75,8 +75,8 @@ const runtimeConfig = {
             "zlib": false,
             "http": false,
             "https": false,
-            "stream": false, // require.resolve("stream-browserify/"),
-            "buffer": require.resolve("buffer/")
+            "stream": false,
+            "buffer": false
         }
     }
 }
