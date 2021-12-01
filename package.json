@@ -9,13 +9,13 @@
         "demo"
     ],
     "scripts": {
-        "start": "webpack-dev-server --open --config webpack.develop.js",
+        "start": "webpack serve --open --config webpack.develop.js",
         "build": "webpack --config webpack.build.js",
         "build-designer": "webpack --config webpack.designer.js",
         "build-publisher": "webpack --config webpack.publisher.js",
         "build-runtime": "webpack --config webpack.runtime.js",
-        "publish": "webpack --config webpack.publisher.js && node dist/publisher/index.js && npm run serve-website",
-        "serve-website": "webpack-dev-server --open --contentBase dist/website --quiet"
+        "publish": "webpack --config webpack.publisher.js && node dist/publisher/index.js",
+        "serve-website": "webpack serve --static ./dist/website"
     },
     "devDependencies": {
         "@types/google.maps": "^3.47.0",
@@ -23,7 +23,6 @@
         "@types/knockout.validation": "0.0.38",
         "@types/mime": "^2.0.3",
         "autoprefixer": "10.4.0",
-        "buffer": "^6.0.3",
         "clean-webpack-plugin": "4.0.0",
         "copy-webpack-plugin": "^10.0.0",
         "css-loader": "6.5.1",

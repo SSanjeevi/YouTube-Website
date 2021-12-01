@@ -45,6 +45,7 @@ const designerConfig = {
                 loader: "html-loader",
                 options: {
                     esModule: true,
+                    sources: false,
                     minimize: {
                         removeComments: false,
                         collapseWhitespace: false
@@ -80,18 +81,7 @@ const designerConfig = {
         })
     ],
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".jsx", ".html", ".scss"],
-        fallback: {
-            "fs": false,
-            "tls": false,
-            "net": false,
-            "path": false,
-            "zlib": false,
-            "http": false,
-            "https": false,
-            "stream": false,
-            "crypto": false
-        }
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".html", ".scss"]
     }
 };
 

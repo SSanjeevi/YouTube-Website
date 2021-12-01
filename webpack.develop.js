@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const designerConfig = require("./webpack.designer.js");
@@ -18,20 +17,7 @@ const developmentConfig = {
                 { from: `./src/config.design.json`, to: `./config.json` },
             ]
         })
-    ],
-    resolve: {
-        fallback: {
-            "fs": false,
-            "tls": false,
-            "net": false,
-            "path": false,
-            "zlib": false,
-            "http": false,
-            "https": false,
-            "stream": false,
-            "buffer": false
-        }
-    }
+    ]
 }
 
 // module.exports = []

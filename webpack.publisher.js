@@ -1,6 +1,6 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const runtimeConfig = require("./webpack.runtime");
 
@@ -50,6 +50,7 @@ const publisherConfig = {
                 loader: "html-loader",
                 options: {
                     esModule: true,
+                    sources: false,
                     minimize: {
                         removeComments: false,
                         collapseWhitespace: false

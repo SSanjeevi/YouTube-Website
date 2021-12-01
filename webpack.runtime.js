@@ -37,6 +37,7 @@ const runtimeConfig = {
                 loader: "html-loader",
                 options: {
                     esModule: true,
+                    sources: false,
                     minimize: {
                         removeComments: false,
                         collapseWhitespace: false
@@ -68,15 +69,8 @@ const runtimeConfig = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".html", ".scss"],
         fallback: {
-            "fs": false,
-            "tls": false,
-            "net": false,
-            "path": false,
-            "zlib": false,
-            "http": false,
-            "https": false,
-            "stream": false,
-            "buffer": false
+            "buffer": false,
+            "stream": require.resolve("stream-browserify")
         }
     }
 }
