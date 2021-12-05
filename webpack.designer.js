@@ -2,10 +2,11 @@ const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const runtimeConfig = require("./webpack.runtime.js");
 
 
 const designerConfig = {
-    mode: "none",
+    mode: "development",
     target: "web",
     entry: {
         "editors/scripts/paperbits": ["./src/startup.design.ts"],
@@ -32,6 +33,10 @@ const designerConfig = {
                     { loader: "postcss-loader" },
                     { loader: "sass-loader" }
                 ]
+            },
+            {
+                test: /\.(svg)$/i,
+                type: "asset/inline"
             },
             {
                 test: /\.tsx?$/,
@@ -85,7 +90,5 @@ const designerConfig = {
     }
 };
 
-// module.exports = [designerConfig, runtimeConfig(true)]
-
-
-module.exports = designerConfig;
+// module.exports = designerConfig;
+module.exports = [designerConfig, runtimeConfig(true)]
