@@ -38,6 +38,9 @@ parser.add_argument('-c', '--channel', dest='channel', action='store',
 parser.add_argument('-o', '--output-file-path', dest='outputFilePath', action='store', default='',
                     help='File to write found video links to (content replaced each time). If this option is not specified, the links are sent to the standard output')
 
+parser.add_argument('-t', '--title', dest='title of page', action='store', default='Videos',
+                    help='title of the page which has the videos page sample. If this option is not specified, it will take videos as default')
+
 parser.add_argument('-x', '--date-from', dest='dateFrom', action='store',
                     help='Videos published after this date will not be retrieved (expected format: yyyy-mm-dd). If not specified, the current date is taken')
 parser.add_argument('-y', '--date-to', dest='dateTo', action='store',
