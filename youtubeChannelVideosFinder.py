@@ -343,14 +343,15 @@ def main():
             except Exception as err:
                 log.critical('Could not create/open the output file!', exc_info=True)  
                 raise Exception('Impossible to write the links to the output file. Verify that the path is correct and that it is accessible/can be created/can be written to')                    
-                         
-            for page in jsonFile['pages']:
+              
+            for i, page in enumerate(jsonFile.pages):
                 # strip the contents of trailing white spaces (new line)
-                title = page['Name']['locales']['en-us']['title']
+                val = page.Name.locales['en-us']
+                title = val.title
 
                 if args.title == title:
-                    contentFileKey = page['Name']['locales']['en-us']['contentKey']
-                    contentVideoGrid = jsonFile['files'][contentFileKey]
+                    contentFileKey = val.contentKey
+                    contentVideoGrid = jsonFile.files[contentFileKey]
 
         
             for video in retVal:
