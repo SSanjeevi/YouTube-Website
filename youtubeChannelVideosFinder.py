@@ -346,10 +346,10 @@ def main():
                          
             for page in jsonFile['pages']:
                 # strip the contents of trailing white spaces (new line)
-                title = page["Name"]['locales']['en-us']['title']
+                title = page['Name']['locales']['en-us']['title']
 
                 if args.title == title:
-                    contentFileKey = page["Name"]['locales']['en-us']['contentKey']
+                    contentFileKey = page['Name']['locales']['en-us']['contentKey']
                     contentVideoGrid = jsonFile['files'][contentFileKey]
 
         
