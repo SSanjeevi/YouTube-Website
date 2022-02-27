@@ -338,7 +338,7 @@ def main():
             pageCount = 0
             try:
                 with open(args.outputFilePath) as f:
-                    jsonFile = json.load(f)
+                    jsonFile = [json.load(f)]
                     #print(d) 
             except Exception as err:
                 log.critical('Could not create/open the output file!', exc_info=True)  
