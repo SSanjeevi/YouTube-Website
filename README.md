@@ -1,50 +1,54 @@
-# Paperbits demo
- 
-This repository contains an example of how using Paperbits you can enable advanced content authoring tools in your web apps.
 
-[Live demo](https://demo.paperbits.io)
+# YouTube-Videos-As-Website
+YouTube Channel Videos As Website
 
-[![Join the chat at https://gitter.im/paperbits/discussions](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/paperbits/discussions)
-[![Build status](https://dev.azure.com/paperbits/Paperbits/_apis/build/status/PR%20build%20-%20paperbits-demo)](https://dev.azure.com/paperbits/Paperbits/_build/latest?definitionId=4)
+## YouTube Videos As Posts Features:
+1. Free Hosting using GitHub Pages and open-source code base in GitHub.
+2. It can update all the videos, title, and description available inside the channel into the posts in jekyll site structure everyday automatically using the GitHub Actions feature.
+2. No need to manually do any step after posting any new video in YouTube, it will be updated in website on next day.
 
+## How to Reuse this Action Template which creates a personal website for the YouTube videos in my channel hosted in Github Pages using Jekyll and Github Actions for free!
 
+1. Copy this Github Action below:
 
-
-## Quick start
-To run demo website locally, you'll need to:
-
-1. Clone the demo project from GitHub:
 ```
-git clone https://github.com/paperbits/paperbits-demo.git
-```
+   - name: YouTube-Videos-As-Posts
+     uses: SSanjeevi/YouTubeVideosAsPosts@Release1.0.0
+     with:
+     GoogleApiKey: ${{ secrets.GoogleApiKey }}
+     channelName: 'channel_Name'
+     
+   - name: Commit and push update
+     run: |-
+     git config --global user.email "youremailid@gmail.com"
+     git config --global user.name "yourUserName"
+     git add -A
+     git commit -m "Updated Youtube Video posts from GitHub Actions"
+     git push
 
-2. Switch into just cloned directory:
+``` 
 
-```bash
-cd paperbits-demo
-```
-
-3. Install packages required for work:
-
-```bash
-npm install
-```
-
-4. Run demo site:
-```bash
-npm start
-```
-
-## What's next?
-
-[Getting started](https://paperbits.io/wiki/getting-started)
-
-[Blog](https://paperbits.io/blog)
-
-[Contributing guide](https://paperbits.io/contributing)
+2. Use any Jekyll Theme for the repo
+3. Keep the posts folder empty - this Action will create all the videos as posts in the repository
+4. You are ready with website with Videos embedded in Github Pages
 
 
-## License
-Use of this source code is governed by an MIT-style license that can be found in the LICENSE file and at https://paperbits.io/license/mit.
+## Samples created by this tool:
 
-2020 (c) Copyright Paperbits. All Rights Reserved.
+## Demo 1:
+https://chemistry.lkgforit.com/
+
+## Demo 2:
+https://tv.lkgforit.com/
+
+## Demo 3
+https://tnpsc.lkgforit.com
+
+## Detailed Article:
+[Step by Step Tutorial](https://lkgforit.com/personal-youtube-channel-videos-website-hosted-in-github-pages-for-free-which-populates-content-automatically)
+
+
+Reference:
+
+https://github.com/dsebastien/youtubeChannelVideosFinder
+https://paperbits.io/wiki/getting-started/
